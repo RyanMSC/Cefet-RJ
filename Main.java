@@ -1,6 +1,8 @@
+//Trabalho feito por Ryan Mont Serrat da Cunha
+//Matricula: 1211538WEB
+
 import java.io.RandomAccessFile;
 import java.util.Scanner;
-
 
 public class Main {
 
@@ -8,54 +10,44 @@ public class Main {
 	{	
 	    Scanner scanner = new Scanner(System.in);
 	    String ecep, x, aux;    
-        int low = 0;
-        int high = 699307 - 1; //numero total de registros no dat é 699307
-        int mid, achou;
+            int low = 0;
+            int high = 699307 - 1; //numero total de registros no dat Ã© 699307
+            int mid, achou;
 	    
-		RandomAccessFile f = new RandomAccessFile("cep_ordenado.dat", "r");
+	    RandomAccessFile f = new RandomAccessFile("cep_ordenado.dat", "r");
 		
-		Endereco e = new Endereco();
-		Endereco t = new Endereco();
+	    Endereco e = new Endereco();
+	    Endereco t = new Endereco();
 		
-		
-		//699307
-		
-	    System.out.println("Digite o CEP que está procurando:");
+	    System.out.println("Digite o CEP que estÃ¡ procurando:");
 	    ecep=scanner.nextLine();
-		x = ecep;
+	    x = ecep;
 		
-		System.out.println("Você está procurando o cep: " + x);
-		
-		System.out.println("-----Percorrendo a lista através de busca binária---------");
-		//Busca Binária cortando de metade em metade
-		while (low <= high) {
-			
-            mid = (low + high) / 2;
-            
-            f.seek(mid*300);
-            //System.out.println("Ponto do arquivo no txt: " + f.getFilePointer());	
-            
+	    System.out.println("VocÃª estÃ¡ procurando o cep: " + x);
+	    System.out.println("-----Percorrendo a lista atravÃ©s de busca binÃ¡ria---------");
+	    
+	    //Busca BinÃ¡ria cortando de metade em metade
+	    while (low <= high)
+	    {
+		mid = (low + high) / 2;
+		f.seek(mid*300);
     		t.leEndereco(f);
-    		System.out.println("CEP da linha achado nessa iteração: " + t.getCep());
-    		
+    		System.out.println("CEP da linha achado nessa iteraÃ§Ã£o: " + t.getCep());
     		aux = t.getCep();
 
-            if (aux.compareTo(x) < 0) {
-                low = mid + 1;
-            } else if (aux.compareTo(x) > 0) {
-                high = mid - 1;
-            } else {
-                //return mid;
-            	achou = mid;
-            	//System.out.println("CEP da linha achado nessa iteração: " + t.getCep());
-            	System.out.println("----------------------Achou!-----------------------------");
-                break;
+		if (aux.compareTo(x) < 0)
+		{low = mid + 1;} 
+		else if (aux.compareTo(x) > 0)
+		{high = mid - 1;} 
+		else 
+		{
+		   achou = mid;
+		   System.out.println("----------------------Achou!-----------------------------");
+		   break;
+		} 
             }
-            
-            
-        }
 		
-		
+		//InformaÃ§Ãµes recuperadas do CEP buscado
 		System.out.println("Logradouro: " + t.getLogradouro());
 		System.out.println("Rua: " + t.getBairro());
 		System.out.println("Cidade: " + t.getCidade());
@@ -64,8 +56,6 @@ public class Main {
 		System.out.println("CEP: " + t.getCep());
 		f.close();
 	}
-	
-
 }
 
 
