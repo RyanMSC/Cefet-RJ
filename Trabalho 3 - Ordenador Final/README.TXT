@@ -1,1 +1,3 @@
-O intuito do programa È perguntar por qual atributo o usu·rio quer ordenar uma sÈrie de registros e como segunda opÁ„o separar esses registros e sub-arquivos por atributos prÈ-configurados.
+O intuito do programa √© perguntar por qual atributo o usu√°rio quer ordenar uma s√©rie de registros e como segunda op√ß√£o separar esses registros em sub-arquivos por atributos pr√©-configurados.
+
+Ryan Mont Serrat da Cunha - CEFET-RJ
