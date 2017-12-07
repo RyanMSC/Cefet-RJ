@@ -1,0 +1,1 @@
+O intuito do programa é perguntar por qual atributo o usuário quer ordenar uma série de registros e como segunda opção separar esses registros e sub-arquivos por atributos pré-configurados.
